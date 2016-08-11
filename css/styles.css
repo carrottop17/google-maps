@@ -1,0 +1,12 @@
+/* line 6, ../compass/sass/styles.scss */
+#map {
+  height: 99vh;
+  width: 75%;
+  float: left;
+}
+
+/* line 18, ../compass/sass/styles.scss */
+.myTable {
+  height: 99vh;
+  overflow: scroll;
+}
