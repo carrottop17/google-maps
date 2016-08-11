@@ -27,14 +27,37 @@
 		
 			<div class="myTable">
 				<table class="table table-condensed table-hover">
+					<tr>
+						<div id="list-window">
+						<form ng-submit="updateMarkers()">
+							<input id="filter-input" ng-model="citiesFilter" type="text">
+							<input value="Update the map" type="submit">
+						</div>
+					</tr>
+					<tr>
+						<label>Locations:
+   			 				<select ng-model="myPlaces" ng-options="place for place in placesTypes"></select>
+  						</label>
+					</tr>
+					<!-- <tr>
+					<input type="text" class="filterField" placeholder="Filter" ng-model="citiesFilter">
+					</tr> -->
 				<thead>
 					<td>City</td>
 					<td>State</td>
 				</thead>
-					<tr ng-repeat="city in cities track by $index">
-						<td><input type="checkbox" ng-click="triggerClick($index)" id="myCheckbox"> {{city.city}}</td>
+					<tr ng-repeat="city in (filteredCities = (cities| filter:citiesFilter)) track by $index">
+						<td><input type="checkbox" ng-model="checkBox" ng-click="triggerClick($index)" id="myCheckbox"> {{city.city}}</td>
 						<td>{{city.state}}</td>
+						<td>
+						<button type="submit" ng-click="getDirections(city.lat, city.lon)">Directions</button>
+						</td>
+						<td>
+						<button type="submit" ng-click="zoomToCity(city.lat, city.lon)">Zoom</button>
+						</td>
 					</tr>
+			
+				</form>
 				</table>
 			</div>
 		</div>

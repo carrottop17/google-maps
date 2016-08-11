@@ -10,3 +10,10 @@
   height: 99vh;
   overflow: scroll;
 }
+
+/* line 23, ../compass/sass/styles.scss */
+.filterField {
+  width: 100%;
+  border: 2px solid black;
+  border-radius: 5px;
+}
