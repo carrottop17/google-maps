@@ -2,7 +2,16 @@
 <html ng-app="googleMapsApp">
 <head>
 	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 
@@ -18,9 +27,9 @@
 	<div class="container-fluid">
 		
 		<div class="row">
-			<div class="col-md-8" id="map">
+			<div id="map">
 				
-		</div>	
+			</div>	
 		
 	
 	
@@ -29,39 +38,76 @@
 				<table class="table table-condensed table-hover">
 					<tr>
 						<div id="list-window">
-						<form ng-submit="updateMarkers()">
-							<input id="filter-input" ng-model="citiesFilter" type="text">
-							<input value="Update the map" type="submit">
+							<form ng-submit="updateMarkers()">
+								
+								<input class="filterField" ng-model="citiesFilter" type="text" placeholder="Filter Cities">
+								<!-- <input value="Update the map" type="submit"> -->
+								
+							</form>
 						</div>
 					</tr>
 					<tr>
-						<label>Locations:
-   			 				<select ng-model="myPlaces" ng-options="place for place in placesTypes"></select>
-  						</label>
+   			 			<select class="form-control" ng-model="myPlaces" ng-options="place for place in placesTypes"></select>
 					</tr>
 					<!-- <tr>
-					<input type="text" class="filterField" placeholder="Filter" ng-model="citiesFilter">
+						<td>City</td>
+						<td>State</td>
 					</tr> -->
-				<thead>
-					<td>City</td>
-					<td>State</td>
-				</thead>
 					<tr ng-repeat="city in (filteredCities = (cities| filter:citiesFilter)) track by $index">
 						<td><input type="checkbox" ng-model="checkBox" ng-click="triggerClick($index)" id="myCheckbox"> {{city.city}}</td>
 						<td>{{city.state}}</td>
 						<td>
-						<button type="submit" ng-click="getDirections(city.lat, city.lon)">Directions</button>
+						<button type="submit" ng-click="getDirections(city.lat, city.lon)" data-toggle="modal" data-target="#myModal">Directions</button>
 						</td>
 						<td>
 						<button type="submit" ng-click="zoomToCity(city.lat, city.lon)">Zoom</button>
 						</td>
 					</tr>
 			
-				</form>
+						</form>
 				</table>
 			</div>
 		</div>
 	
     </div>
+    <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Directions</h4>
+      </div>
+      <div class="modal-body" id="modalDirections">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -192,7 +192,7 @@ googleMapsApp.controller('googleMapsController', function($scope, $http){
 
     var destination = new google.maps.LatLng(lat, lon);
     directionsDisplay.setMap(map);
-    directionsDisplay.setPanel(document.getElementById('list-window'));
+    directionsDisplay.setPanel(document.getElementById('modalDirections'));
     directionsService.route({
             origin: 'Atlanta',
             destination: destination,

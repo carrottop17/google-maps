@@ -14,6 +14,61 @@
 /* line 23, ../compass/sass/styles.scss */
 .filterField {
   width: 100%;
-  border: 2px solid black;
-  border-radius: 5px;
+  font-size: 20px;
+}
+
+/* line 28, ../compass/sass/styles.scss */
+#floating-panel {
+  position: absolute;
+  top: 10px;
+  left: 25%;
+  z-index: 5;
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid #999;
+  text-align: center;
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+  padding-left: 10px;
+}
+
+/* line 41, ../compass/sass/styles.scss */
+#right-panel {
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+  padding-left: 10px;
+}
+
+/* line 47, ../compass/sass/styles.scss */
+#right-panel select, #right-panel input {
+  font-size: 15px;
+}
+
+/* line 51, ../compass/sass/styles.scss */
+#right-panel select {
+  width: 100%;
+}
+
+/* line 55, ../compass/sass/styles.scss */
+#right-panel i {
+  font-size: 12px;
+}
+
+/* line 58, ../compass/sass/styles.scss */
+#right-panel {
+  height: 100%;
+  float: right;
+  width: 390px;
+  overflow: auto;
+}
+
+/* line 64, ../compass/sass/styles.scss */
+#floating-panel {
+  background: #fff;
+  padding: 5px;
+  font-size: 14px;
+  font-family: Arial;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 2px rgba(33, 33, 33, 0.4);
+  display: none;
 }
