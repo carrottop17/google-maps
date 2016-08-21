@@ -150,6 +150,7 @@ googleMapsApp.controller('googleMapsController', function($scope, $http){
                           '<p><img src="images/'+city.city+'.jpg"></p>';
     	var cityLatlng = {lat: city.lat, lng: city.lon};
 	    var marker = new google.maps.Marker({
+          animation: google.maps.Animation.DROP,
 	        position: cityLatlng,
 	       	map: map,
 	       	title: city.city,
@@ -239,6 +240,7 @@ googleMapsApp.controller('googleMapsController', function($scope, $http){
         var placeLoc = place.geometry.location;
         var marker = new google.maps.Marker({
           map: map,
+          animation: google.maps.Animation.DROP,
           position: place.geometry.location
         });
 
